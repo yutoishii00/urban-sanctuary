@@ -4,11 +4,16 @@
  * Colors: Midnight Blue (#0B1021), Champagne Gold (#D4AF37), Frost White (#E2E8F0)
  */
 
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowLeft } from "lucide-react";
 
 export default function Privacy() {
+  useEffect(() => {
+    document.title = "プライバシーポリシー｜Urban Sanctuary — 完全会員制・高級エスコートサービス";
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#0B1021] text-[#E2E8F0]">
       {/* Back navigation */}

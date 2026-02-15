@@ -1,5 +1,5 @@
 /*
- * Membership Section — Initiation Fee + Annual Membership Tiers
+ * Membership Section — Initiation Fee + Annual Membership Tiers + Diagnosis CTA
  * Design: Midnight blue + champagne gold glassmorphism, literary tone
  * Tiers: Gold / Platinum / Royal
  */
@@ -16,7 +16,9 @@ import {
   CalendarCheck,
   UserCheck,
   Ban,
+  Sparkles,
 } from "lucide-react";
+import DiagnosisModal from "./DiagnosisModal";
 
 /* ─── Initiation Fee ─── */
 const initiationFee = {
@@ -215,111 +217,149 @@ function TierCard({
 export default function MembershipSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [isDiagnosisOpen, setIsDiagnosisOpen] = useState(false);
 
   return (
-    <section id="membership" className="relative section-spacing" ref={ref}>
-      <div className="absolute inset-0 bg-[#0B1021]" />
+    <>
+      <section id="membership" className="relative section-spacing" ref={ref}>
+        <div className="absolute inset-0 bg-[#0B1021]" />
 
-      {/* Subtle radial glow behind the section */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#D4AF37]/[0.02] rounded-full blur-[120px]" />
-      </div>
-
-      <div className="container relative z-10">
-        {/* Section heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-16 md:mb-24"
-        >
-          <span className="font-display text-xs tracking-[0.3em] uppercase text-[#D4AF37]/60 block mb-4">
-            — Exclusive Membership
-          </span>
-          <h2 className="font-display text-5xl md:text-6xl tracking-[0.1em] text-gradient-gold">
-            Membership
-          </h2>
-          <div className="w-12 h-px bg-[#D4AF37]/40 mx-auto mt-8" />
-        </motion.div>
-
-        {/* ─── Initiation Fee ─── */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{
-            duration: 0.7,
-            delay: 0.15,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          className="max-w-2xl mx-auto mb-16 md:mb-24"
-        >
-          <div className="relative rounded-sm overflow-hidden border border-[#D4AF37]/20 bg-white/[0.02] backdrop-blur-xl">
-            {/* Top gold line */}
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent" />
-
-            <div className="p-8 md:p-12 text-center">
-              <p className="font-display text-xs tracking-[0.3em] uppercase text-[#D4AF37]/50 mb-3">
-                {initiationFee.label}
-              </p>
-              <p className="font-sans text-[11px] tracking-[0.15em] text-[#E2E8F0]/30 mb-6">
-                {initiationFee.subtitle}
-              </p>
-
-              <div className="mb-8">
-                <span className="font-display text-5xl md:text-6xl tracking-[0.05em] text-gradient-gold">
-                  {initiationFee.price}
-                </span>
-                <span className="font-sans text-[10px] tracking-wider text-[#E2E8F0]/25 ml-2">
-                  (税込)
-                </span>
-              </div>
-
-              <div className="w-16 h-px bg-[#D4AF37]/15 mx-auto mb-8" />
-
-              <p className="font-serif text-xs md:text-[13px] tracking-wider leading-[2.4] text-[#E2E8F0]/40 max-w-lg mx-auto">
-                {initiationFee.description}
-              </p>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* ─── Annual Membership heading ─── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-12 md:mb-16"
-        >
-          <p className="font-display text-sm tracking-[0.2em] uppercase text-[#E2E8F0]/30">
-            Annual Membership
-          </p>
-          <p className="font-serif text-[12px] tracking-wider text-[#D4AF37]/30 mt-2 italic">
-            — 年会費
-          </p>
-        </motion.div>
-
-        {/* ─── Tier Cards ─── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
-          {tiers.map((tier, i) => (
-            <TierCard
-              key={tier.name}
-              tier={tier}
-              index={i}
-              isInView={isInView}
-            />
-          ))}
+        {/* Subtle radial glow behind the section */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#D4AF37]/[0.02] rounded-full blur-[120px]" />
         </div>
 
-        {/* Footer note */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center font-sans text-[11px] tracking-wider text-[#E2E8F0]/20 mt-14 leading-relaxed"
-        >
-          ※ 会員資格は審査制となります。詳しくはお問い合わせください。
-        </motion.p>
-      </div>
-    </section>
+        <div className="container relative z-10">
+          {/* Section heading */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="text-center mb-16 md:mb-24"
+          >
+            <span className="font-display text-xs tracking-[0.3em] uppercase text-[#D4AF37]/60 block mb-4">
+              — Exclusive Membership
+            </span>
+            <h2 className="font-display text-5xl md:text-6xl tracking-[0.1em] text-gradient-gold">
+              Membership
+            </h2>
+            <div className="w-12 h-px bg-[#D4AF37]/40 mx-auto mt-8" />
+          </motion.div>
+
+          {/* ─── Initiation Fee ─── */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{
+              duration: 0.7,
+              delay: 0.15,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="max-w-2xl mx-auto mb-16 md:mb-24"
+          >
+            <div className="relative rounded-sm overflow-hidden border border-[#D4AF37]/20 bg-white/[0.02] backdrop-blur-xl">
+              {/* Top gold line */}
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent" />
+
+              <div className="p-8 md:p-12 text-center">
+                <p className="font-display text-xs tracking-[0.3em] uppercase text-[#D4AF37]/50 mb-3">
+                  {initiationFee.label}
+                </p>
+                <p className="font-sans text-[11px] tracking-[0.15em] text-[#E2E8F0]/30 mb-6">
+                  {initiationFee.subtitle}
+                </p>
+
+                <div className="mb-8">
+                  <span className="font-display text-5xl md:text-6xl tracking-[0.05em] text-gradient-gold">
+                    {initiationFee.price}
+                  </span>
+                  <span className="font-sans text-[10px] tracking-wider text-[#E2E8F0]/25 ml-2">
+                    (税込)
+                  </span>
+                </div>
+
+                <div className="w-16 h-px bg-[#D4AF37]/15 mx-auto mb-8" />
+
+                <p className="font-serif text-xs md:text-[13px] tracking-wider leading-[2.4] text-[#E2E8F0]/40 max-w-lg mx-auto">
+                  {initiationFee.description}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* ─── Annual Membership heading ─── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="text-center mb-12 md:mb-16"
+          >
+            <p className="font-display text-sm tracking-[0.2em] uppercase text-[#E2E8F0]/30">
+              Annual Membership
+            </p>
+            <p className="font-serif text-[12px] tracking-wider text-[#D4AF37]/30 mt-2 italic">
+              — 年会費
+            </p>
+          </motion.div>
+
+          {/* ─── Tier Cards ─── */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+            {tiers.map((tier, i) => (
+              <TierCard
+                key={tier.name}
+                tier={tier}
+                index={i}
+                isInView={isInView}
+              />
+            ))}
+          </div>
+
+          {/* ─── Diagnosis CTA ─── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-md mx-auto mt-16 md:mt-20"
+          >
+            <div className="relative rounded-sm overflow-hidden border border-white/[0.06] bg-white/[0.02] backdrop-blur-xl">
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent" />
+              <div className="p-6 md:p-8 text-center">
+                <p className="font-serif text-[12px] tracking-[0.15em] text-[#E2E8F0]/35 mb-2">
+                  どのプランが最適か迷われていますか？
+                </p>
+                <p className="font-serif text-[11px] tracking-wider text-[#D4AF37]/30 mb-6 leading-relaxed">
+                  3つの質問で、貴女に合うキャストとプランをご提案します
+                </p>
+                <motion.button
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setIsDiagnosisOpen(true)}
+                  className="inline-flex items-center gap-2.5 px-8 py-3.5 border border-[#D4AF37]/25 hover:border-[#D4AF37]/50 bg-[#D4AF37]/[0.04] hover:bg-[#D4AF37]/[0.08] text-[#D4AF37]/70 hover:text-[#D4AF37] font-serif text-[13px] tracking-[0.18em] transition-all duration-700 rounded-sm cursor-pointer hover:shadow-[0_0_25px_rgba(212,175,55,0.1)]"
+                >
+                  <Sparkles size={14} strokeWidth={1.5} />
+                  相性診断（無料）
+                </motion.button>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Footer note */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="text-center font-sans text-[11px] tracking-wider text-[#E2E8F0]/20 mt-14 leading-relaxed"
+          >
+            ※ 会員資格は審査制となります。詳しくはお問い合わせください。
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Diagnosis Modal */}
+      <DiagnosisModal
+        isOpen={isDiagnosisOpen}
+        onClose={() => setIsDiagnosisOpen(false)}
+      />
+    </>
   );
 }

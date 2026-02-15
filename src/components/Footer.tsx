@@ -48,12 +48,7 @@ export default function Footer() {
                 Secrecy（秘密）
               </span>
             </Link>
-            <a
-              href="#"
-              className="font-serif text-xs tracking-[0.15em] text-[#E2E8F0]/40 hover:text-[#D4AF37]/70 transition-colors duration-500"
-            >
-              キャスト募集
-            </a>
+
           </nav>
 
           {/* Divider */}

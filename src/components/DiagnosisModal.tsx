@@ -111,7 +111,7 @@ function getResult(answers: string[]): ResultType {
   };
 }
 
-const LINE_URL = "https://line.me/R/";
+const LINE_URL = "https://lin.ee/M05TEHZ";
 
 const slideVariants = {
   enter: (direction: number) => ({

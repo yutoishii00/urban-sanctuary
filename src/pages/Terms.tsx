@@ -1,6 +1,6 @@
 /*
- * Terms Page — 聖域との誓約 / Covenant
- * Design: Novel / contract aesthetic — dark background, serif typography, generous spacing
+ * Terms Page — 利用規約
+ * Design: Dark background, serif typography, generous spacing
  * Colors: Midnight Blue (#0B1021), Champagne Gold (#D4AF37), Frost White (#E2E8F0)
  */
 
@@ -33,110 +33,110 @@ export default function Terms() {
         {/* Title block */}
         <header className="text-center mb-20">
           <span className="font-display text-xs tracking-[0.3em] uppercase text-[#D4AF37]/50 block mb-5">
-            — Covenant
+            — Terms of Service
           </span>
           <h1 className="font-display text-4xl md:text-5xl tracking-[0.15em] text-gradient-gold mb-4">
-            聖域との誓約
+            利用規約
           </h1>
-          <div className="w-12 h-px bg-[#D4AF37]/30 mx-auto mt-6 mb-8" />
-          <p className="font-sans text-[10px] tracking-[0.2em] text-[#E2E8F0]/20 uppercase">
-            Terms of Service
-          </p>
+          <div className="w-12 h-px bg-[#D4AF37]/30 mx-auto mt-6" />
         </header>
 
-        {/* Preamble */}
+        {/* Body */}
         <div className="terms-body">
-          <p>
-            Urban Sanctuary（以下「当館」）は、孤独を抱える貴女のための避難所です。
+          <p className="mb-16">
+            この利用規約（以下「本規約」）は、Urban Sanctuary（以下「当サービス」）が提供するすべてのサービスの利用条件を定めるものです。ご利用の皆様（以下「利用者」）には、本規約に同意いただいた上で、当サービスをご利用いただきます。
           </p>
+
+          <h2>第1条（適用）</h2>
           <p>
-            この扉をくぐる時、貴女と私たちは「秘密」という名の契約を交わします。
+            本規約は、利用者と当サービスとの間のサービス利用に関わる一切の関係に適用されるものとします。
           </p>
           <p className="mb-16">
-            以下に記された誓約を守れる方のみ、この鍵をお使いください。
+            当サービスが別途定める個別規定や追加規定は、本規約の一部を構成するものとします。本規約と個別規定が矛盾する場合は、個別規定が優先されるものとします。
           </p>
 
-          {/* Article 1 */}
-          <h2>第1条（関係性の定義）</h2>
+          <h2>第2条（利用資格）</h2>
           <p>
-            当館が提供するのは「時間」と「救済」であり、それ以外の何物でもありません。
-          </p>
-          <p>
-            キャストは貴女の「鏡」です。貴女が心を許せば、彼らもまた心を開きます。
-          </p>
-          <p>
-            ただし、これは対等な人間同士の、一夜限りの夢の共有です。
+            当サービスは、18歳以上の方のみご利用いただけます。
           </p>
           <p className="mb-16">
-            金銭によって魂や尊厳までを買い取ることはできません。
+            利用者は、当サービスの利用にあたり、本規約に同意し、かつ当サービスが定める審査基準を満たす必要があります。
           </p>
 
-          {/* Article 2 */}
-          <h2>第2条（禁忌 — Taboo）</h2>
-          <p className="mb-8">
-            この夢を壊さないために、以下の行為を「禁忌」と定めます。
+          <h2>第3条（禁止事項）</h2>
+          <p className="mb-4">
+            利用者は、当サービスの利用にあたり、以下の行為をしてはなりません。
           </p>
-
           <div className="taboo-list">
             <div className="taboo-item">
-              <h3>1. 魔法を解く行為</h3>
-              <p>
-                キャストの本名、住所、過去を暴くこと。夢は夢のままであるからこそ美しいのです。
-              </p>
+              <p>法令または公序良俗に違反する行為</p>
             </div>
-
             <div className="taboo-item">
-              <h3>2. 聖域を汚す行為</h3>
-              <p>
-                キャストに対する暴力、暴言、脅迫。あるいは、嫌がる彼らを無理強いすること。
-              </p>
-              <p className="text-[#D4AF37]/50 text-[12px] mt-3 leading-[2]">
-                ※当館は性的サービスを提供する売春宿ではありません。法に触れる行為、本番行為の強要は固く禁じます。
-              </p>
+              <p>犯罪行為に関連する行為</p>
             </div>
-
             <div className="taboo-item">
-              <h3>3. 隠し撮り・晒し</h3>
-              <p>
-                二人の時間を記録に残すこと、SNS等で共有することは、最も重い裏切りとみなします。
-              </p>
+              <p>当サービスのスタッフ、他の利用者、または第三者に対する嫌がらせ、誹謗中傷、脅迫、暴力行為</p>
+            </div>
+            <div className="taboo-item">
+              <p>当サービスの運営を妨害するおそれのある行為</p>
+            </div>
+            <div className="taboo-item">
+              <p>他の利用者またはスタッフの個人情報を不正に収集、開示、または利用する行為</p>
+            </div>
+            <div className="taboo-item">
+              <p>当サービスの施設内またはサービス提供中の無断撮影・録音・録画</p>
+            </div>
+            <div className="taboo-item">
+              <p>その他、当サービスが不適切と判断する行為</p>
             </div>
           </div>
 
-          {/* Article 3 */}
-          <h2 className="mt-16">第3条（対価とキャンセル）</h2>
+          <h2 className="mt-16">第4条（サービスの提供・変更・停止）</h2>
           <p>
-            救済には相応の対価が必要です。
-          </p>
-          <p>
-            予約とは、キャストという一人の人間の「命の時間」を確保する約束です。
-          </p>
-          <p className="mb-8">
-            そのため、直前のキャンセルには痛みが伴います。
-          </p>
-
-          <div className="cancel-policy">
-            <div className="cancel-row">
-              <span className="cancel-label">前日の破棄</span>
-              <span className="cancel-value">対価の50%</span>
-            </div>
-            <div className="cancel-row">
-              <span className="cancel-label">当日の破棄</span>
-              <span className="cancel-value">対価の100%</span>
-            </div>
-          </div>
-
-          <p className="mt-8 mb-16">
-            無断で約束を破られた場合、二度とこの扉が開くことはありません。
-          </p>
-
-          {/* Article 4 */}
-          <h2>第4条（免責）</h2>
-          <p>
-            当館は、貴女の「心の隙間」を埋めるお手伝いをしますが、その結果生じた感情の揺れ動きや、日常への影響について責任を負うものではありません。
+            当サービスは、利用者に事前に通知することなく、サービスの内容を変更し、または提供を中止することができるものとします。
           </p>
           <p className="mb-16">
-            「溺れる」ことさえも楽しむ覚悟を持って、ご来館ください。
+            当サービスは、サービスの提供の停止または中断により、利用者または第三者が被ったいかなる不利益または損害についても、一切の責任を負わないものとします。
+          </p>
+
+          <h2>第5条（料金および支払い）</h2>
+          <p>
+            利用者は、当サービスが定める料金を、指定された方法により支払うものとします。
+          </p>
+          <p>
+            予約のキャンセルについては、当サービスが別途定めるキャンセルポリシーに従うものとします。
+          </p>
+          <p className="mb-16">
+            一度お支払いいただいた料金は、当サービスに帰責事由がある場合を除き、返金いたしません。
+          </p>
+
+          <h2>第6条（会員資格の停止・取消）</h2>
+          <p>
+            当サービスは、利用者が本規約のいずれかの条項に違反した場合、または当サービスが利用者として不適当と判断した場合、事前の通知なく会員資格の停止または取消を行うことができるものとします。
+          </p>
+          <p className="mb-16">
+            会員資格の停止・取消に伴い、既にお支払いいただいた入会金および年会費の返金は行いません。
+          </p>
+
+          <h2>第7条（免責事項）</h2>
+          <p>
+            当サービスは、サービスの利用により利用者に生じた一切の損害について、当サービスの故意または重大な過失による場合を除き、責任を負わないものとします。
+          </p>
+          <p className="mb-16">
+            当サービスは、利用者間または利用者とスタッフ間のトラブルについて、一切の責任を負わないものとします。
+          </p>
+
+          <h2>第8条（規約の変更）</h2>
+          <p className="mb-16">
+            当サービスは、必要と判断した場合には、利用者に通知することなくいつでも本規約を変更することができるものとします。変更後の利用規約は、当サービスのウェブサイトに掲載した時点から効力を生じるものとします。
+          </p>
+
+          <h2>第9条（準拠法・管轄裁判所）</h2>
+          <p>
+            本規約の解釈にあたっては、日本法を準拠法とします。
+          </p>
+          <p className="mb-16">
+            当サービスに関して紛争が生じた場合には、当サービスの本店所在地を管轄する裁判所を専属的合意管轄とします。
           </p>
 
           {/* Date */}

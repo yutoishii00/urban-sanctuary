@@ -1,6 +1,6 @@
 /*
- * Privacy Policy Page — 秘密の封蝋 / Secrecy
- * Design: Novel / contract aesthetic — dark background, serif typography, generous spacing
+ * Privacy Policy Page — プライバシーポリシー
+ * Design: Dark background, serif typography, generous spacing
  * Colors: Midnight Blue (#0B1021), Champagne Gold (#D4AF37), Frost White (#E2E8F0)
  */
 
@@ -33,63 +33,112 @@ export default function Privacy() {
         {/* Title block */}
         <header className="text-center mb-20">
           <span className="font-display text-xs tracking-[0.3em] uppercase text-[#D4AF37]/50 block mb-5">
-            — Secrecy
+            — Privacy Policy
           </span>
           <h1 className="font-display text-4xl md:text-5xl tracking-[0.15em] text-gradient-gold mb-4">
-            秘密の封蝋
+            プライバシーポリシー
           </h1>
-          <div className="w-12 h-px bg-[#D4AF37]/30 mx-auto mt-6 mb-8" />
-          <p className="font-sans text-[10px] tracking-[0.2em] text-[#E2E8F0]/20 uppercase">
-            Privacy Policy
-          </p>
+          <div className="w-12 h-px bg-[#D4AF37]/30 mx-auto mt-6" />
         </header>
 
-        {/* Preamble */}
+        {/* Body */}
         <div className="terms-body">
-          <p>
-            貴女が誰であるか。社会でどのような仮面を被っているか。
-          </p>
-          <p>
-            ここにおいて、それは何の意味も持ちません。
-          </p>
           <p className="mb-16">
-            私たちは、貴女の「秘密」を墓場まで持っていくことを誓います。
+            Urban Sanctuary（以下「当サービス」）は、利用者の個人情報の保護を重要な責務と認識し、以下のとおりプライバシーポリシー（以下「本ポリシー」）を定め、個人情報の適切な取扱いと保護に努めます。
           </p>
 
-          {/* Section 1 */}
-          <h2>1. 収集する情報の意味</h2>
-          <p>
-            私たちが貴女のお名前や連絡先をお聞きするのは、貴女を確実にこの聖域へ導くためだけです。
+          <h2>1. 収集する情報</h2>
+          <p className="mb-4">
+            当サービスは、サービスの提供にあたり、以下の情報を収集することがあります。
           </p>
-          <p className="mb-16">
-            それ以外の目的で、貴女の現実世界に干渉することはありません。
+          <div className="taboo-list">
+            <div className="taboo-item">
+              <p>氏名、生年月日、性別、連絡先（電話番号、メールアドレス等）</p>
+            </div>
+            <div className="taboo-item">
+              <p>サービスの利用履歴、予約情報</p>
+            </div>
+            <div className="taboo-item">
+              <p>お支払いに関する情報</p>
+            </div>
+            <div className="taboo-item">
+              <p>当サービスのウェブサイトへのアクセス情報（IPアドレス、ブラウザ情報、Cookie等）</p>
+            </div>
+            <div className="taboo-item">
+              <p>お問い合わせ内容、アンケートへの回答</p>
+            </div>
+          </div>
+
+          <h2 className="mt-16">2. 利用目的</h2>
+          <p className="mb-4">
+            収集した個人情報は、以下の目的で利用いたします。
+          </p>
+          <div className="taboo-list">
+            <div className="taboo-item">
+              <p>サービスの提供、運営、維持および改善</p>
+            </div>
+            <div className="taboo-item">
+              <p>利用者からのお問い合わせへの対応</p>
+            </div>
+            <div className="taboo-item">
+              <p>予約の確認、変更、キャンセルに関する連絡</p>
+            </div>
+            <div className="taboo-item">
+              <p>利用規約に違反する行為への対応</p>
+            </div>
+            <div className="taboo-item">
+              <p>サービスに関する重要なお知らせの送付</p>
+            </div>
+          </div>
+
+          <h2 className="mt-16">3. 第三者への提供</h2>
+          <p>
+            当サービスは、以下の場合を除き、利用者の個人情報を第三者に提供することはありません。
+          </p>
+          <div className="taboo-list">
+            <div className="taboo-item">
+              <p>利用者の同意がある場合</p>
+            </div>
+            <div className="taboo-item">
+              <p>法令に基づく場合</p>
+            </div>
+            <div className="taboo-item">
+              <p>人の生命、身体または財産の保護のために必要がある場合であって、利用者の同意を得ることが困難である場合</p>
+            </div>
+            <div className="taboo-item">
+              <p>国の機関もしくは地方公共団体またはその委託を受けた者が法令の定める事務を遂行することに対して協力する必要がある場合</p>
+            </div>
+          </div>
+
+          <h2 className="mt-16">4. 個人情報の管理</h2>
+          <p>
+            当サービスは、利用者の個人情報を正確かつ最新の状態に保ち、個人情報への不正アクセス、紛失、破損、改ざん、漏洩などを防止するため、セキュリティシステムの維持、管理体制の整備等、必要な措置を講じ、安全対策を実施し個人情報の厳重な管理を行います。
           </p>
 
-          {/* Section 2 */}
-          <h2>2. 第三者への沈黙</h2>
+          <h2 className="mt-16">5. 個人情報の開示・訂正・削除</h2>
           <p>
-            貴女がここに存在したという事実を含め、頂いた情報を第三者に漏らすことは決してありません。
+            利用者から個人情報の開示を求められた場合、当サービスは遅滞なくこれを開示します。
+          </p>
+          <p>
+            個人情報の内容に誤りがあり、利用者から訂正・追加・削除の請求があった場合は、速やかに対応いたします。
           </p>
           <p className="mb-16">
-            ただし、貴女自身やキャストの生命に関わる緊急事態、あるいは法による強制力が働いた場合に限り、この封蝋を解くことがあります。
+            利用者が退会を希望される場合、当サービスが保有する当該利用者の個人情報は、当サービスが定める保存期間の経過後に適切な方法で消去いたします。
           </p>
 
-          {/* Section 3 */}
-          <h2>3. データの消滅</h2>
-          <p>
-            貴女が退会を望む時、あるいは当館との縁が切れた時、
-          </p>
+          <h2>6. Cookieの使用</h2>
           <p className="mb-16">
-            貴女に関する全ての記録は、夜明けの霧のように跡形もなく消去されます。
+            当サービスのウェブサイトでは、利用者の利便性向上およびアクセス解析のためにCookieを使用することがあります。利用者はブラウザの設定によりCookieの受け入れを拒否することができますが、その場合、当サービスの一部機能がご利用いただけない場合があります。
           </p>
 
-          {/* Section 4 */}
-          <h2>4. 問いかけ</h2>
-          <p>
-            この誓いに関する疑問や不安があれば、いつでも支配人（運営）までお声がけください。
-          </p>
+          <h2>7. 本ポリシーの変更</h2>
           <p className="mb-16">
-            貴女の不安を取り除くことも、私たちの務めです。
+            当サービスは、必要に応じて本ポリシーを変更することがあります。変更後のプライバシーポリシーは、当サービスのウェブサイトに掲載した時点から効力を生じるものとします。
+          </p>
+
+          <h2>8. お問い合わせ</h2>
+          <p className="mb-16">
+            本ポリシーに関するお問い合わせは、当サービスの運営事務局までご連絡ください。
           </p>
 
           {/* Date */}

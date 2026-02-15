@@ -21,7 +21,7 @@ export default function Home() {
   /* Update document title for SPA navigation */
   useEffect(() => {
     document.title =
-      "Urban Sanctuary｜完全会員制・高級男性エスコートサービス【東京】";
+      "Urban Sanctuary｜完全会員制・高級男性エスコートサービス【東京・福岡・全国対応】";
   }, []);
 
   return (
@@ -38,9 +38,9 @@ export default function Home() {
 
         {/* SEO: Visually hidden semantic content for search engines */}
         <section className="sr-only" aria-label="サービス概要">
-          <h2>Urban Sanctuary — 完全会員制・高級男性エスコートサービス（東京）</h2>
+          <h2>Urban Sanctuary — 完全会員制・高級男性エスコートサービス（東京・福岡・全国対応）</h2>
           <p>
-            Urban Sanctuaryは、東京を拠点とする完全会員制・審査制の高級男性エスコートサービスです。
+            Urban Sanctuaryは、東京・福岡を中心に全国対応の完全会員制・審査制の高級男性エスコートサービスです。
             出張ホストやレンタル彼氏とは一線を画す、心の救済に特化した大人の女性向けデートクラブとして、
             富裕層のお客様に上質な時間をお届けしています。
           </p>
@@ -61,6 +61,8 @@ export default function Home() {
             <li>バレない・顔出しなし — プライバシーを最優先に保護</li>
             <li>否定のない傾聴 — 言葉にできない溜め息さえも拾います</li>
             <li>性的サービスは一切提供しません</li>
+            <li>東京・福岡を中心に全国対応</li>
+            <li>東京エリアは事前予約制（当日予約不可）</li>
           </ul>
           <h3>プラン</h3>
           <p>Prelude（2時間）¥30,000 — 心地よい距離感と、少しの体温。</p>

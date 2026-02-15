@@ -111,7 +111,7 @@ function getResult(answers: string[]): ResultType {
   };
 }
 
-const LINE_URL = "https://lin.ee/M05TEHZ";
+const LINE_URL = "https://lin.ee/EADYl8MA";
 
 const slideVariants = {
   enter: (direction: number) => ({
@@ -342,16 +342,14 @@ export default function DiagnosisModal({
                           rel="noopener noreferrer"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
-                          className="flex items-center justify-center gap-3 w-full px-6 py-3.5 bg-[#06C755] hover:bg-[#05b34d] border border-[#06C755]/30 transition-all duration-500 rounded-sm cursor-pointer"
+                          className="flex items-center justify-center w-full cursor-pointer"
                         >
-                          <MessageCircle
-                            size={16}
-                            className="text-white"
-                            strokeWidth={1.5}
+                          <img
+                            src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png"
+                            alt="友だち追加"
+                            height={36}
+                            className="h-9"
                           />
-                          <span className="font-serif text-sm tracking-[0.15em] text-white">
-                            鍵を開ける（LINE起動）
-                          </span>
                         </motion.a>
 
                         <button

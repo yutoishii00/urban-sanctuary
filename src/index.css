@@ -166,3 +166,99 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: oklch(0.78 0.08 85 / 50%);
 }
+
+/* ===== Terms & Privacy page styles ===== */
+.terms-body p {
+  font-family: "Shippori Mincho B1", "Yu Mincho", serif;
+  font-size: 14px;
+  line-height: 2.4;
+  letter-spacing: 0.06em;
+  color: rgba(226, 232, 240, 0.6);
+  margin-bottom: 0.5rem;
+}
+
+.terms-body h2 {
+  font-family: "Shippori Mincho B1", "Yu Mincho", serif;
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  line-height: 2;
+  color: #D4AF37;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+}
+
+.terms-body h3 {
+  font-family: "Shippori Mincho B1", "Yu Mincho", serif;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  line-height: 2;
+  color: rgba(226, 232, 240, 0.8);
+  margin-bottom: 0.5rem;
+}
+
+.taboo-list {
+  padding-left: 0;
+}
+
+.taboo-item {
+  position: relative;
+  padding: 1.5rem 0 1.5rem 1.5rem;
+  border-left: 1px solid rgba(212, 175, 55, 0.12);
+  margin-bottom: 0.5rem;
+}
+
+.taboo-item::before {
+  content: "";
+  position: absolute;
+  left: -3px;
+  top: 1.75rem;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.4);
+}
+
+.cancel-policy {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.5rem 2rem;
+}
+
+.cancel-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.cancel-row:last-child {
+  border-bottom: none;
+}
+
+.cancel-label {
+  font-family: "Shippori Mincho B1", "Yu Mincho", serif;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: rgba(226, 232, 240, 0.5);
+}
+
+.cancel-value {
+  font-family: "Cormorant Garamond", "Shippori Mincho B1", serif;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  color: #D4AF37;
+}
+
+.enactment {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.enactment p {
+  font-family: "Shippori Mincho B1", "Yu Mincho", serif;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: rgba(226, 232, 240, 0.25);
+}

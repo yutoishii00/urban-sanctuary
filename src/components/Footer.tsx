@@ -1,16 +1,12 @@
 /*
  * Footer — Minimal with links and copyright
  * Gold accent line at top
+ * Links: Covenant (利用規約), Secrecy (プライバシーポリシー), キャスト募集
  */
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-
-const footerLinks = [
-  { label: "利用規約", href: "#" },
-  { label: "プライバシーポリシー", href: "#" },
-  { label: "キャスト募集", href: "#" },
-];
+import { Link } from "wouter";
 
 export default function Footer() {
   const ref = useRef(null);
@@ -42,15 +38,22 @@ export default function Footer() {
 
           {/* Links */}
           <nav className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
-            {footerLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="font-sans text-xs tracking-[0.15em] text-[#E2E8F0]/40 hover:text-[#D4AF37]/70 transition-colors duration-500"
-              >
-                {link.label}
-              </a>
-            ))}
+            <Link href="/terms">
+              <span className="font-serif text-xs tracking-[0.15em] text-[#E2E8F0]/40 hover:text-[#D4AF37]/70 transition-colors duration-500 cursor-pointer">
+                Covenant（誓約）
+              </span>
+            </Link>
+            <Link href="/privacy">
+              <span className="font-serif text-xs tracking-[0.15em] text-[#E2E8F0]/40 hover:text-[#D4AF37]/70 transition-colors duration-500 cursor-pointer">
+                Secrecy（秘密）
+              </span>
+            </Link>
+            <a
+              href="#"
+              className="font-serif text-xs tracking-[0.15em] text-[#E2E8F0]/40 hover:text-[#D4AF37]/70 transition-colors duration-500"
+            >
+              キャスト募集
+            </a>
           </nav>
 
           {/* Divider */}

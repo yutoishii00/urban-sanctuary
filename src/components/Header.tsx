@@ -53,9 +53,16 @@ export default function Header() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="font-display text-xl md:text-2xl tracking-[0.2em] text-[#D4AF37] hover:text-[#F5E6A3] transition-colors duration-500"
+            className="flex items-center gap-3 hover:opacity-90 transition-opacity duration-500"
           >
-            Urban Sanctuary
+            <img
+              src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663310152600/bAHNYrHZFcbxSdGV.png"
+              alt="Urban Sanctuary"
+              className="w-9 h-9 md:w-10 md:h-10 rounded-full object-cover"
+            />
+            <span className="font-display text-xl md:text-2xl tracking-[0.2em] text-[#D4AF37] hover:text-[#F5E6A3] transition-colors duration-500">
+              Urban Sanctuary
+            </span>
           </a>
 
           {/* Desktop Nav */}

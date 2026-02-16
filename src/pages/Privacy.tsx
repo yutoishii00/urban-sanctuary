@@ -120,10 +120,7 @@ export default function Privacy() {
             当サービスは、利用者の個人情報を正確かつ最新の状態に保ち、個人情報への不正アクセス、紛失、破損、改ざん、漏洩などを防止するため、セキュリティシステムの維持、管理体制の整備等、必要な措置を講じ、安全対策を実施し個人情報の厳重な管理を行います。
           </p>
 
-          <h2 className="mt-16">5. 個人情報の開示・訂正・削除</h2>
-          <p>
-            利用者から個人情報の開示を求められた場合、当サービスは遅滞なくこれを開示します。
-          </p>
+          <h2 className="mt-16">5. 個人情報の訂正・削除</h2>
           <p>
             個人情報の内容に誤りがあり、利用者から訂正・追加・削除の請求があった場合は、速やかに対応いたします。
           </p>
@@ -142,9 +139,24 @@ export default function Privacy() {
           </p>
 
           <h2>8. お問い合わせ</h2>
-          <p className="mb-16">
+          <p className="mb-6">
             本ポリシーに関するお問い合わせは、当サービスの運営事務局までご連絡ください。
           </p>
+          <div className="mb-16 flex justify-center">
+            <a
+              href="https://lin.ee/EADYl8MA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block hover:opacity-80 transition-opacity duration-300"
+            >
+              <img
+                src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png"
+                alt="友だち追加"
+                height={36}
+                className="h-9"
+              />
+            </a>
+          </div>
 
           {/* Date */}
           <div className="enactment">

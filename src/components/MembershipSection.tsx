@@ -21,7 +21,7 @@ import DiagnosisModal from "./DiagnosisModal";
 
 /* ─── Initiation Fee ─── */
 const initiationFee = {
-  price: "¥200,000",
+  price: "¥220,000",
   label: "Initiation Fee",
   subtitle: "入会審査・セキュリティ登録料",
   description:

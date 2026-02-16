@@ -12,7 +12,6 @@ import {
   Gem,
   Star,
   Clock,
-  Phone,
   CalendarCheck,
   UserCheck,
   Ban,
@@ -22,7 +21,7 @@ import DiagnosisModal from "./DiagnosisModal";
 
 /* ─── Initiation Fee ─── */
 const initiationFee = {
-  price: "¥550,000",
+  price: "¥200,000",
   label: "Initiation Fee",
   subtitle: "入会審査・セキュリティ登録料",
   description:
@@ -81,7 +80,6 @@ const tiers = [
     features: [
       { icon: Crown, text: "最優先予約枠 — 満席でもRoyal会員のためにスケジュールを調整・確保" },
       { icon: Ban, text: "キャンセル規定の免除 — 当日の急な予定変更でもキャンセル料一切不要" },
-      { icon: Phone, text: "24時間ホットライン — 深夜早朝を問わず、専属デスクが即座に対応" },
     ],
   },
 ];
@@ -274,7 +272,7 @@ export default function MembershipSection() {
                     {initiationFee.price}
                   </span>
                   <span className="font-sans text-[10px] tracking-wider text-[#E2E8F0]/25 ml-2">
-                    (税込)
+                    (税抜)
                   </span>
                 </div>
 

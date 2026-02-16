@@ -13,7 +13,7 @@ const plans = [
     name: "Prelude",
     subtitle: "まとまらない言葉も、沈黙さえも。ただ、隣にいる時間",
     duration: "2hours",
-    price: "¥30,000",
+    price: "¥33,000",
     icon: Feather,
     features: [
       "言葉にできない「溜め息」を拾う",
@@ -25,7 +25,7 @@ const plans = [
     name: "Escapism",
     subtitle: "渇いた日常に、潤いという名の色彩を落とす",
     duration: "4hours",
-    price: "¥60,000",
+    price: "¥66,000",
     icon: Compass,
     featured: true,
     features: [
@@ -112,7 +112,7 @@ export default function PriceSection() {
                     {plan.price}
                   </span>
                   <span className="font-sans text-[10px] tracking-wider text-[#E2E8F0]/30 ml-2">
-                    (税抜)
+                    (税込)
                   </span>
                 </div>
 

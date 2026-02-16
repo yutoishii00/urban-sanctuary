@@ -49,7 +49,7 @@ export default function SafetySection() {
             安全への約束
           </h2>
           <div className="w-12 h-px bg-[#D4AF37]/40 mx-auto mb-10" />
-          <p className="font-sans text-sm md:text-base leading-relaxed tracking-wider text-[#E2E8F0]/70 max-w-2xl mx-auto">
+          <p className="font-sans text-sm md:text-base leading-relaxed tracking-wider text-[#E2E8F0]/70 max-w-3xl mx-auto">
             当店は性的サービスを一切行わない、対話とデートを通じたリラクゼーションサービスです。
           </p>
         </motion.div>

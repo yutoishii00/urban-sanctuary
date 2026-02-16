@@ -94,17 +94,6 @@ function CastCard({
           }`}
         />
 
-        {/* Type badge */}
-        <div className="absolute top-4 right-4">
-          <span className={`font-sans text-[10px] tracking-[0.2em] uppercase px-3 py-1.5 rounded-full backdrop-blur-md transition-all duration-500 ${
-            hovered
-              ? "bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/30"
-              : "bg-white/5 text-[#E2E8F0]/50 border border-white/10"
-          }`}>
-            {member.type}
-          </span>
-        </div>
-
         {/* Voice overlay on hover */}
         <div
           className={`absolute bottom-0 left-0 right-0 p-6 transition-all duration-700 ${

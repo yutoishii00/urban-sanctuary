@@ -272,7 +272,7 @@ export default function MembershipSection() {
                     {initiationFee.price}
                   </span>
                   <span className="font-sans text-[10px] tracking-wider text-[#E2E8F0]/25 ml-2">
-                    (税抜)
+                    (税込)
                   </span>
                 </div>
 

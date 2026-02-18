@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
-
-/**
- * Design Philosophy: Art Deco Luxury
- * - Accordion UI with smooth transitions
- * - Midnight blue background with gold accents
- * - Category-based organization
- * - Serif fonts for elegance
+/*
+ * FAQ Section — Luxury accordion with glassmorphism
+ * Design: Midnight blue (#0B1021), Champagne Gold (#D4AF37), Frost White (#E2E8F0)
+ * Fonts: Cormorant Garamond (display), Shippori Mincho B1 (serif), Noto Sans JP (body)
+ * Matches: ConceptSection / PriceSection / MembershipSection aesthetic
  */
+
+import { useState, useRef } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 
 interface FAQItem {
   question: string;
@@ -15,13 +15,15 @@ interface FAQItem {
 }
 
 interface FAQCategory {
+  id: string;
   title: string;
   items: FAQItem[];
 }
 
 const faqData: FAQCategory[] = [
   {
-    title: 'サービスの安全性・信頼性',
+    id: 'safety',
+    title: '安全性・信頼性',
     items: [
       {
         question: '本当に性的サービスはないのですか？',
@@ -42,6 +44,7 @@ const faqData: FAQCategory[] = [
     ],
   },
   {
+    id: 'booking',
     title: '利用方法・予約',
     items: [
       {
@@ -63,9 +66,9 @@ const faqData: FAQCategory[] = [
         question: 'キャンセルはできますか？キャンセル料は？',
         answer: [
           'ご予約日の3日前までは無料でキャンセル可能です。それ以降は以下のキャンセル料が発生します。',
-          '• 2日前：料金の30%',
-          '• 前日：料金の50%',
-          '• 当日：料金の100%',
+          '・2日前：料金の30%',
+          '・前日：料金の50%',
+          '・当日：料金の100%',
           'やむを得ない事情がある場合は、お早めにご連絡ください。',
           '但し、ROYAL年会の方はキャンセル料はかかりません。',
         ],
@@ -77,6 +80,7 @@ const faqData: FAQCategory[] = [
     ],
   },
   {
+    id: 'membership',
     title: '会員制度・料金',
     items: [
       {
@@ -86,9 +90,9 @@ const faqData: FAQCategory[] = [
       {
         question: '年会費プランの違いは何ですか？',
         answer: [
-          '• Gold（¥330,000）: 基本的なサービスをご利用いただけます',
-          '• Platinum（¥550,000）: 優先予約権・限定キャストへのアクセス',
-          '• Royal（¥1,100,000）: 最優先予約・全キャストへのアクセス',
+          '・Gold（¥330,000）: 基本的なサービスをご利用いただけます',
+          '・Platinum（¥550,000）: 優先予約権・限定キャストへのアクセス',
+          '・Royal（¥1,100,000）: 最優先予約・全キャストへのアクセス',
           '詳細はお問い合わせ時にご案内いたします。',
         ],
       },
@@ -103,7 +107,8 @@ const faqData: FAQCategory[] = [
     ],
   },
   {
-    title: 'キャスト・サービス内容',
+    id: 'cast',
+    title: 'キャスト・サービス',
     items: [
       {
         question: 'どのようなキャストが在籍していますか？',
@@ -120,14 +125,15 @@ const faqData: FAQCategory[] = [
       {
         question: '2時間・4時間では何ができますか？',
         answer: [
-          '• Prelude（2時間）: カフェやバーでの会話、軽い食事、散策など',
-          '• Escapism（4時間）: ディナー、ドライブ、美術館巡り、ホテルラウンジでの長時間会話など',
+          '・Prelude（2時間）: カフェやバーでの会話、軽い食事、散策など',
+          '・Escapism（4時間）: ディナー、ドライブ、美術館巡り、ホテルラウンジでの長時間会話など',
           'お客様のご希望に合わせてプランをご提案いたします。',
         ],
       },
     ],
   },
   {
+    id: 'eligibility',
     title: '対象者・審査',
     items: [
       {
@@ -149,6 +155,7 @@ const faqData: FAQCategory[] = [
     ],
   },
   {
+    id: 'area',
     title: 'エリア・営業時間',
     items: [
       {
@@ -162,6 +169,7 @@ const faqData: FAQCategory[] = [
     ],
   },
   {
+    id: 'other',
     title: 'その他',
     items: [
       {
@@ -180,39 +188,75 @@ const faqData: FAQCategory[] = [
   },
 ];
 
-function FAQAccordionItem({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boolean; onToggle: () => void }) {
+function FAQAccordionItem({
+  item,
+  isOpen,
+  onToggle,
+  index,
+}: {
+  item: FAQItem;
+  isOpen: boolean;
+  onToggle: () => void;
+  index: number;
+}) {
   return (
-    <div className="border-b border-amber-900/30">
+    <div className="border-b border-[#D4AF37]/[0.07] last:border-b-0">
       <button
         onClick={onToggle}
-        className="w-full py-5 px-6 flex items-start justify-between text-left hover:bg-amber-950/20 transition-colors group"
+        className="w-full py-6 md:py-7 px-6 md:px-10 flex items-start justify-between text-left group transition-all duration-500 hover:bg-white/[0.015]"
       >
-        <span className="font-serif text-amber-100 text-base pr-4 group-hover:text-amber-400 transition-colors">
-          {item.question}
-        </span>
-        <ChevronDown
-          className={`w-5 h-5 text-amber-500 flex-shrink-0 transition-transform duration-300 ${
-            isOpen ? 'rotate-180' : ''
-          }`}
-        />
-      </button>
-      <div
-        className={`overflow-hidden transition-all duration-300 ${
-          isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
-        }`}
-      >
-        <div className="px-6 pb-5 text-slate-300 text-sm leading-relaxed">
-          {Array.isArray(item.answer) ? (
-            <div className="space-y-2">
-              {item.answer.map((line, idx) => (
-                <p key={idx}>{line}</p>
-              ))}
-            </div>
-          ) : (
-            <p>{item.answer}</p>
-          )}
+        <div className="flex items-start gap-4 md:gap-6 pr-4">
+          <span className="font-display text-[11px] tracking-[0.2em] text-[#D4AF37]/30 mt-1 shrink-0">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <span className="font-serif text-[15px] md:text-base tracking-wider leading-[1.9] text-[#E2E8F0]/80 group-hover:text-[#E2E8F0] transition-colors duration-500">
+            {item.question}
+          </span>
         </div>
-      </div>
+        <div
+          className={`w-8 h-8 rounded-full border border-[#D4AF37]/15 flex items-center justify-center shrink-0 transition-all duration-500 group-hover:border-[#D4AF37]/30 ${
+            isOpen ? 'bg-[#D4AF37]/10 border-[#D4AF37]/25' : ''
+          }`}
+        >
+          <ChevronDown
+            size={14}
+            className={`text-[#D4AF37]/60 transition-transform duration-500 ${
+              isOpen ? 'rotate-180' : ''
+            }`}
+          />
+        </div>
+      </button>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 md:px-10 pb-7 md:pb-8 pl-[52px] md:pl-[76px]">
+              <div className="w-8 h-px bg-[#D4AF37]/20 mb-5" />
+              {Array.isArray(item.answer) ? (
+                <div className="space-y-3">
+                  {item.answer.map((line, idx) => (
+                    <p
+                      key={idx}
+                      className="font-sans text-[13px] tracking-wider leading-[2] text-[#E2E8F0]/50"
+                    >
+                      {line}
+                    </p>
+                  ))}
+                </div>
+              ) : (
+                <p className="font-sans text-[13px] tracking-wider leading-[2] text-[#E2E8F0]/50">
+                  {item.answer}
+                </p>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -220,6 +264,8 @@ function FAQAccordionItem({ item, isOpen, onToggle }: { item: FAQItem; isOpen: b
 export default function FAQSection() {
   const [activeCategory, setActiveCategory] = useState(0);
   const [openItems, setOpenItems] = useState<Set<number>>(new Set());
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const toggleItem = (index: number) => {
     const newOpenItems = new Set(openItems);
@@ -232,59 +278,92 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-b from-slate-950 to-slate-900">
-      <div className="container max-w-4xl">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-amber-500 text-sm tracking-[0.3em] mb-4 font-light">— FAQ —</p>
-          <h2 className="font-serif text-4xl md:text-5xl text-amber-100 mb-6">よくあるご質問</h2>
-          <p className="text-slate-400 text-sm max-w-2xl mx-auto">
-            お客様からよくいただくご質問をまとめました。
-            <br />
-            その他のご不明点は、お気軽にLINEよりお問い合わせください。
-          </p>
-        </div>
+    <section className="relative section-spacing" ref={ref}>
+      {/* Background — matches site gradient */}
+      <div className="absolute inset-0 bg-[#0B1021]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#D4AF37]/[0.01] to-transparent" />
 
-        {/* Category Tabs */}
-        <div className="flex flex-wrap gap-2 mb-8 justify-center">
+      <div className="container relative z-10 max-w-4xl">
+        {/* Section heading — matches PriceSection / ConceptSection */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center mb-16 md:mb-20"
+        >
+          <span className="font-display text-xs tracking-[0.3em] uppercase text-[#D4AF37]/60 block mb-4">
+            — Questions & Answers
+          </span>
+          <h2 className="font-display text-5xl md:text-6xl tracking-[0.1em] text-gradient-gold">
+            FAQ
+          </h2>
+          <div className="w-12 h-px bg-[#D4AF37]/40 mx-auto mt-8" />
+          <p className="font-serif text-[13px] tracking-wider text-[#E2E8F0]/35 mt-6 leading-relaxed">
+            お客様からよくいただくご質問をまとめました
+          </p>
+        </motion.div>
+
+        {/* Category Navigation — elegant pill tabs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-wrap gap-2 md:gap-3 mb-12 md:mb-16 justify-center"
+        >
           {faqData.map((category, idx) => (
             <button
-              key={idx}
+              key={category.id}
               onClick={() => {
                 setActiveCategory(idx);
-                setOpenItems(new Set()); // Close all when switching category
+                setOpenItems(new Set());
               }}
-              className={`px-4 py-2 rounded-full text-sm transition-all ${
+              className={`relative px-4 md:px-5 py-2 md:py-2.5 text-[11px] md:text-xs tracking-[0.15em] transition-all duration-500 rounded-sm border ${
                 activeCategory === idx
-                  ? 'bg-amber-600 text-white shadow-lg shadow-amber-900/50'
-                  : 'bg-slate-800/50 text-slate-400 hover:bg-slate-800 hover:text-amber-400'
+                  ? 'border-[#D4AF37]/30 text-[#D4AF37] bg-[#D4AF37]/[0.06]'
+                  : 'border-white/[0.06] text-[#E2E8F0]/30 hover:text-[#E2E8F0]/50 hover:border-white/[0.1]'
               }`}
             >
               {category.title}
             </button>
           ))}
-        </div>
+        </motion.div>
 
-        {/* FAQ Items */}
-        <div className="bg-slate-900/50 backdrop-blur-sm rounded-lg border border-amber-900/20 overflow-hidden shadow-2xl">
+        {/* FAQ Accordion — glassmorphism card */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="relative rounded-sm overflow-hidden bg-white/[0.02] backdrop-blur-xl border border-white/[0.06]"
+        >
+          {/* Subtle inner glow */}
+          <div className="absolute inset-0 shadow-[inset_0_1px_0_rgba(212,175,55,0.06)] pointer-events-none" />
+
           {faqData[activeCategory].items.map((item, idx) => (
             <FAQAccordionItem
-              key={idx}
+              key={`${faqData[activeCategory].id}-${idx}`}
               item={item}
               isOpen={openItems.has(idx)}
               onToggle={() => toggleItem(idx)}
+              index={idx}
             />
           ))}
-        </div>
+        </motion.div>
 
-        {/* CTA */}
-        <div className="text-center mt-12">
-          <p className="text-slate-400 text-sm mb-4">他にご質問がございますか？</p>
+        {/* Bottom CTA — subtle, elegant */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="text-center mt-14 md:mt-16"
+        >
+          <p className="font-sans text-[11px] tracking-[0.15em] text-[#E2E8F0]/25 mb-6">
+            その他のご不明点はお気軽にお問い合わせください
+          </p>
           <a
             href="https://lin.ee/EADYl8MA"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block"
+            className="inline-block transition-opacity duration-500 hover:opacity-80"
           >
             <img
               src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png"
@@ -293,7 +372,7 @@ export default function FAQSection() {
               className="h-9"
             />
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

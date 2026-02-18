@@ -15,6 +15,7 @@ import CastSection from "@/components/CastSection";
 import FlowSection from "@/components/FlowSection";
 import PriceSection from "@/components/PriceSection";
 import MembershipSection from "@/components/MembershipSection";
+import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -35,6 +36,7 @@ export default function Home() {
         <FlowSection />
         <PriceSection />
         <MembershipSection />
+        <FAQSection />
 
         {/* SEO: Visually hidden semantic content for search engines */}
         <section className="sr-only" aria-label="サービス概要">

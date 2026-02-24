@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import { Route, Switch } from "wouter";
+import { HelmetProvider } from "react-helmet-async";
 import AgeGate from "./components/AgeGate";
 import Home from "./pages/Home";
 import Terms from "./pages/Terms";
@@ -17,11 +18,13 @@ function App() {
   }
 
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/terms" component={Terms} />
-      <Route path="/privacy" component={Privacy} />
-    </Switch>
+    <HelmetProvider>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/terms" component={Terms} />
+        <Route path="/privacy" component={Privacy} />
+      </Switch>
+    </HelmetProvider>
   );
 }
 

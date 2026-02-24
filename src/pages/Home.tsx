@@ -7,6 +7,7 @@
  */
 
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ConceptSection from "@/components/ConceptSection";
@@ -27,6 +28,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#0B1021] text-[#E2E8F0] overflow-x-hidden">
+      <Helmet>
+        <title>Urban Sanctuary｜完全会員制・高級男性エスコートサービス【東京・福岡・全国対応】</title>
+        <meta name="description" content="Urban Sanctuaryは、審査制・完全会員制の高級男性エスコートサービスです。東京・福岡を中心に全国対応。富裕層の女性に向けた、否定のない傾聴と心の救済。寂しさや心の隙間を埋める、あなただけの特別な時間をお届けします。" />
+      </Helmet>
       <Header />
       <main>
         <HeroSection />

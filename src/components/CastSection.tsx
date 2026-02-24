@@ -45,7 +45,7 @@ const castMembers = [
     type: "ソース顔",
   },
   {
-    name: "Shin",
+    name: "Jun",
     age: 42,
     voice: "人生の深みを知る者だからこそ、あなたの心に寄り添えます。",
     image: CAST_40S,

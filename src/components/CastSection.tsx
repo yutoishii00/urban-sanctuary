@@ -16,6 +16,9 @@ const CAST_SHOYU = "https://private-us-east-1.manuscdn.com/sessionFile/yInDrc44d
 // ソース顔 — Bold features, deep-set eyes, charismatic
 const CAST_SAUCE = "https://private-us-east-1.manuscdn.com/sessionFile/yInDrc44dXExNS4EEzYhyr/sandbox/WzCMV9JAI3BlL3cjOsjFEO-img-3_1770871121000_na1fn_Y2FzdC1zYXVjZQ.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUveUluRHJjNDRkWEV4TlM0RUV6WWh5ci9zYW5kYm94L1d6Q01WOUpBSTNCbEwzY2pPc2pGRU8taW1nLTNfMTc3MDg3MTEyMTAwMF9uYTFmbl9ZMkZ6ZEMxellYVmpaUS5qcGc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=Hpz0ltAuXG3nK3bbg6c-JiqiG7Wy5pdNhGvE0mx8xBjcYaq1f52-XDhlS-ZKdie2jtCCcTss4~YAXL4lZaeuKRgYrUWeHHuwWQF2eQjQlUgHz0rtZy91y41cA5AEP-ih1r8n7fUGJ2bXUKDUkEdNov~H-SVoMKeWuBO6xTYfTGqY-8Lr-Ieb710NZmymd8Wiv1KXyJd35WjL-EaWDVC~iHJOn1zOl15RgXJApcNy9rbzAS1POMHoYAL0Yk9fc6vQejq74~m2LgSlCIz32DhpDyqJwuKnIZ1R6pWcqg2ZFa2SXTp~3Ca1NpOTBm~YfW6GG1mMHwE5HvLdAHiSw4tKcg__";
 
+// 40代 — Mature, distinguished, experienced
+const CAST_40S = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663310152600/rGYVUujkXbQrgLEB.jpg";
+
 const castMembers = [
   {
     name: "Ren",
@@ -40,6 +43,14 @@ const castMembers = [
     image: CAST_SAUCE,
     specialty: "映画・水族館デート",
     type: "ソース顔",
+  },
+  {
+    name: "Shin",
+    age: 42,
+    voice: "人生の深みを知る者だからこそ、あなたの心に寄り添えます。",
+    image: CAST_40S,
+    specialty: "ディナー・バーデート",
+    type: "大人の色気",
   },
 ];
 
@@ -79,6 +90,11 @@ function CastCard({
           }`}
           loading="lazy"
         />
+        {/* Luxury glass mosaic effect overlay */}
+        <div className="absolute inset-0 backdrop-blur-[8px] bg-gradient-to-br from-[#0B1021]/20 via-transparent to-[#D4AF37]/10" style={{
+          WebkitMaskImage: 'radial-gradient(circle at 50% 30%, black 0%, black 40%, transparent 70%)',
+          maskImage: 'radial-gradient(circle at 50% 30%, black 0%, black 40%, transparent 70%)'
+        }} />
         {/* Dark overlay */}
         <div
           className={`absolute inset-0 bg-gradient-to-t from-[#0B1021]/80 via-[#0B1021]/20 to-transparent transition-opacity duration-700 ${
@@ -150,7 +166,7 @@ export default function CastSection() {
         </motion.div>
 
         {/* Cast grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 max-w-7xl mx-auto">
           {castMembers.map((member, i) => (
             <CastCard
               key={member.name}

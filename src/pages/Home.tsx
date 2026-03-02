@@ -16,6 +16,7 @@ import CastSection from "@/components/CastSection";
 import FlowSection from "@/components/FlowSection";
 import PriceSection from "@/components/PriceSection";
 import MembershipSection from "@/components/MembershipSection";
+import VoiceSection from "@/components/VoiceSection";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 
@@ -41,6 +42,7 @@ export default function Home() {
         <FlowSection />
         <PriceSection />
         <MembershipSection />
+        <VoiceSection />
         <FAQSection />
 
         {/* SEO: Visually hidden semantic content for search engines */}
@@ -72,12 +74,14 @@ export default function Home() {
             <li>東京エリアは事前予約制（当日予約不可）</li>
           </ul>
           <h3>プラン</h3>
-          <p>Prelude（2時間）¥66,000（税込・指名料込） — 心地よい距離感と、少しの体温。</p>
-          <p>Escapism（4時間）¥99,000（税込・指名料込） — 渇いた日常に、潤いという名の色彩を落とす逃避行。</p>
+          <p>Prelude（2時間）— 心地よい距離感と、少しの体温。</p>
+          <p>Escapism（4時間）— 渇いた日常に、潤いという名の色彩を落とす逃避行。</p>
           <h3>会員制度</h3>
-          <p>入会金 ¥220,000（税込）。年会費：Gold ¥330,000 / Platinum ¥550,000 / Royal ¥1,100,000。</p>
+          <p>入会金・年会費についてはお問い合わせください。Gold / Platinum / Royal の3プランをご用意しております。</p>
           <h3>営業時間</h3>
           <p>Daydream 14:00～19:00（秘密の午後）/ Midnight 19:00～02:00（夜の帳が下りてから、世界が眠るその時まで）</p>
+          <h3>会員様の声</h3>
+          <p>ときめきや甘える時間は、いくつになっても大切だと思いました。少し勇気を出すことで、自分の中の女性らしい感覚を思い出せるかもしれません。本当に素敵な時間でした。</p>
         </section>
       </main>
       <Footer />

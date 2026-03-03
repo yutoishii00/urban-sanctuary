@@ -20,7 +20,7 @@ import DiagnosisModal from "./DiagnosisModal";
 
 /* ─── Initiation Fee ─── */
 const initiationFee = {
-  price: "ASK",
+  price: "¥220,000",
   label: "Initiation Fee",
   subtitle: "入会審査・セキュリティ登録料",
   description:
@@ -33,7 +33,7 @@ const tiers = [
     name: "Gold",
     nameJa: "ゴールド",
     concept: "Standard Access",
-    price: "ASK",
+    price: "¥330,000",
     period: "/ year",
     icon: Shield,
     accent: "from-[#D4AF37]/20 to-[#D4AF37]/5",
@@ -50,7 +50,7 @@ const tiers = [
     name: "Platinum",
     nameJa: "プラチナ",
     concept: "Stress-free",
-    price: "ASK",
+    price: "¥550,000",
     period: "/ year",
     icon: Crown,
     featured: true,
@@ -68,7 +68,7 @@ const tiers = [
     name: "Royal",
     nameJa: "ロイヤル",
     concept: "Unlimited Flexibility",
-    price: "ASK",
+    price: "¥1,100,000",
     period: "/ year",
     icon: Gem,
     accent: "from-[#D4AF37]/30 to-[#F5E6A3]/10",
@@ -156,6 +156,9 @@ function TierCard({
         <div className="mb-8">
           <span className="font-display text-3xl md:text-4xl tracking-[0.05em] text-gradient-gold">
             {tier.price}
+          </span>
+          <span className="font-sans text-[10px] tracking-wider text-[#E2E8F0]/25 ml-2">
+            (税込) {tier.period}
           </span>
         </div>
 
@@ -266,6 +269,9 @@ export default function MembershipSection() {
                 <div className="mb-8">
                   <span className="font-display text-5xl md:text-6xl tracking-[0.05em] text-gradient-gold">
                     {initiationFee.price}
+                  </span>
+                  <span className="font-sans text-[10px] tracking-wider text-[#E2E8F0]/25 ml-2">
+                    (税込)
                   </span>
                 </div>
 
